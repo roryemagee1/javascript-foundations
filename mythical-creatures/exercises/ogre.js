@@ -14,14 +14,20 @@ class Ogre {
 
   encounter(human) {
     human.encounterCounter++;
+    if ((human.encounterCounter % 3 === 0) && (human.encounterCounter !== 0)) {
+      this.swingAt(human);
+    };
   };
 
   swingAt(human) {
-    // var noticed = this.human.noticesOgre();
-    // console.log(noticed);
-    // if (noticed) {
-      this.swings++;
-    // };
+    this.swings++;
+    if ((this.swings % 2 === 0) && (this.swings !== 0)) {
+      human.knockedOut = true;
+    };
+  };
+
+  apologize(human) {
+    human.knockedOut = false;
   };
 
 };
